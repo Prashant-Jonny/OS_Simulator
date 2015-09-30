@@ -1,3 +1,11 @@
 C:\Users\owner\Documents\Tareas\CETYS\SEM 4\Algoritmos\Tareas\OSSIM\OSSIM\bin\Debug\OSSIM.exe.config
 C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OSSIM\OSSIM\bin\Debug\OSSIM.exe.config
 C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.exe.config
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.exe
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.pdb
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.csprojResolveAssemblyReference.cache
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.Form1.resources
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.Properties.Resources.resources
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.csproj.GenerateResource.Cache
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.exe
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.pdb

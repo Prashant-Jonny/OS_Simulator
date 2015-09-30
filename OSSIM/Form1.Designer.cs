@@ -56,6 +56,26 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.newProcessProbBox = new System.Windows.Forms.TextBox();
+            this.quantumBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.limitNewBox = new System.Windows.Forms.TextBox();
+            this.limitReadyBox = new System.Windows.Forms.TextBox();
+            this.limitWaitingIOBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // clockLabel
@@ -186,9 +206,28 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.limitWaitingIOBox);
+            this.groupBox1.Controls.Add(this.limitReadyBox);
+            this.groupBox1.Controls.Add(this.limitNewBox);
+            this.groupBox1.Controls.Add(this.quantumBox);
+            this.groupBox1.Controls.Add(this.newProcessProbBox);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Location = new System.Drawing.Point(15, 291);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(185, 204);
+            this.groupBox1.Size = new System.Drawing.Size(191, 346);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parameters";
@@ -226,7 +265,7 @@
             this.pcbBox.Multiline = true;
             this.pcbBox.Name = "pcbBox";
             this.pcbBox.ReadOnly = true;
-            this.pcbBox.Size = new System.Drawing.Size(705, 425);
+            this.pcbBox.Size = new System.Drawing.Size(705, 567);
             this.pcbBox.TabIndex = 5;
             // 
             // label5
@@ -310,11 +349,168 @@
             this.label13.TabIndex = 19;
             this.label13.Text = "Total";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 29);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 26);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Probability of\r\nnew process";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 72);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(50, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Algorithm";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 102);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Quantum";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(36, 133);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "List limits";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 252);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(71, 26);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "CPU average\r\nusage time";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 295);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 26);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "I/O usage\r\ntime";
+            // 
+            // newProcessProbBox
+            // 
+            this.newProcessProbBox.Location = new System.Drawing.Point(89, 32);
+            this.newProcessProbBox.Name = "newProcessProbBox";
+            this.newProcessProbBox.Size = new System.Drawing.Size(31, 20);
+            this.newProcessProbBox.TabIndex = 1;
+            // 
+            // quantumBox
+            // 
+            this.quantumBox.Location = new System.Drawing.Point(89, 98);
+            this.quantumBox.Name = "quantumBox";
+            this.quantumBox.Size = new System.Drawing.Size(31, 20);
+            this.quantumBox.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 162);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(29, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "New";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 192);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(38, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Ready";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 222);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(62, 13);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Waiting I/O";
+            // 
+            // limitNewBox
+            // 
+            this.limitNewBox.Location = new System.Drawing.Point(89, 158);
+            this.limitNewBox.Name = "limitNewBox";
+            this.limitNewBox.Size = new System.Drawing.Size(31, 20);
+            this.limitNewBox.TabIndex = 1;
+            // 
+            // limitReadyBox
+            // 
+            this.limitReadyBox.Location = new System.Drawing.Point(89, 188);
+            this.limitReadyBox.Name = "limitReadyBox";
+            this.limitReadyBox.Size = new System.Drawing.Size(31, 20);
+            this.limitReadyBox.TabIndex = 1;
+            // 
+            // limitWaitingIOBox
+            // 
+            this.limitWaitingIOBox.Location = new System.Drawing.Point(89, 218);
+            this.limitWaitingIOBox.Name = "limitWaitingIOBox";
+            this.limitWaitingIOBox.Size = new System.Drawing.Size(31, 20);
+            this.limitWaitingIOBox.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(89, 252);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(31, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(89, 292);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(31, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(3, 120);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(184, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "-----------------------------------------------------------";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(3, 236);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(184, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "-----------------------------------------------------------";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(129, 35);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(15, 13);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "%";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 506);
+            this.ClientSize = new System.Drawing.Size(953, 649);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -345,6 +541,8 @@
             this.Controls.Add(this.clockLabel);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,6 +578,25 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox limitWaitingIOBox;
+        private System.Windows.Forms.TextBox limitReadyBox;
+        private System.Windows.Forms.TextBox limitNewBox;
+        private System.Windows.Forms.TextBox quantumBox;
+        private System.Windows.Forms.TextBox newProcessProbBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label25;
     }
 }
 
