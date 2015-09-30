@@ -226,7 +226,7 @@
             this.pcbBox.Multiline = true;
             this.pcbBox.Name = "pcbBox";
             this.pcbBox.ReadOnly = true;
-            this.pcbBox.Size = new System.Drawing.Size(478, 425);
+            this.pcbBox.Size = new System.Drawing.Size(705, 425);
             this.pcbBox.TabIndex = 5;
             // 
             // label5
@@ -250,71 +250,71 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(284, 53);
+            this.label7.Location = new System.Drawing.Point(283, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Arrival";
+            this.label7.Text = "Arrival time";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(343, 53);
+            this.label8.Location = new System.Drawing.Point(381, 53);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 14;
-            this.label8.Text = "label8";
+            this.label8.Text = "CPU usage";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(402, 53);
+            this.label9.Location = new System.Drawing.Point(482, 53);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(100, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "label9";
+            this.label9.Text = "Accum. CPU usage";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(461, 53);
+            this.label10.Location = new System.Drawing.Point(622, 53);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 16;
-            this.label10.Text = "label10";
+            this.label10.Text = "I/O usage";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(526, 53);
+            this.label11.Location = new System.Drawing.Point(717, 53);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 17;
-            this.label11.Text = "label11";
+            this.label11.Text = "I/O arrival";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(591, 53);
+            this.label12.Location = new System.Drawing.Point(811, 53);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.Size = new System.Drawing.Size(48, 13);
             this.label12.TabIndex = 18;
-            this.label12.Text = "label12";
+            this.label12.Text = "End time";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(662, 53);
+            this.label13.Location = new System.Drawing.Point(899, 53);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.Size = new System.Drawing.Size(31, 13);
             this.label13.TabIndex = 19;
-            this.label13.Text = "label13";
+            this.label13.Text = "Total";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 506);
+            this.ClientSize = new System.Drawing.Size(953, 506);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);

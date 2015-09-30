@@ -1,2 +1,3 @@
 C:\Users\owner\Documents\Tareas\CETYS\SEM 4\Algoritmos\Tareas\OSSIM\OSSIM\bin\Debug\OSSIM.exe.config
 C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OSSIM\OSSIM\bin\Debug\OSSIM.exe.config
+C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.exe.config
