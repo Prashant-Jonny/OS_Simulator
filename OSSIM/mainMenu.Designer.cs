@@ -45,8 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ioTimeBox = new System.Windows.Forms.TextBox();
+            this.cpuAvgTimeBox = new System.Windows.Forms.TextBox();
             this.limitWaitingIOBox = new System.Windows.Forms.TextBox();
             this.limitReadyBox = new System.Windows.Forms.TextBox();
             this.limitNewBox = new System.Windows.Forms.TextBox();
@@ -77,9 +77,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.speedSlow = new System.Windows.Forms.Button();
-            this.speedMedium = new System.Windows.Forms.Button();
+            this.speedNormal = new System.Windows.Forms.Button();
             this.speedFast = new System.Windows.Forms.Button();
             this.aTimer = new System.Windows.Forms.Timer(this.components);
+            this.boxUsingIO = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,11 +123,11 @@
             // 
             // boxWaiting
             // 
-            this.boxWaiting.Location = new System.Drawing.Point(104, 86);
+            this.boxWaiting.Location = new System.Drawing.Point(104, 125);
             this.boxWaiting.Multiline = true;
             this.boxWaiting.Name = "boxWaiting";
             this.boxWaiting.ReadOnly = true;
-            this.boxWaiting.Size = new System.Drawing.Size(44, 159);
+            this.boxWaiting.Size = new System.Drawing.Size(44, 120);
             this.boxWaiting.TabIndex = 4;
             // 
             // boxReady
@@ -158,7 +160,7 @@
             // labelWaiting
             // 
             this.labelWaiting.AutoSize = true;
-            this.labelWaiting.Location = new System.Drawing.Point(101, 70);
+            this.labelWaiting.Location = new System.Drawing.Point(101, 109);
             this.labelWaiting.Name = "labelWaiting";
             this.labelWaiting.Size = new System.Drawing.Size(43, 13);
             this.labelWaiting.TabIndex = 6;
@@ -212,8 +214,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.ioTimeBox);
+            this.groupBox1.Controls.Add(this.cpuAvgTimeBox);
             this.groupBox1.Controls.Add(this.limitWaitingIOBox);
             this.groupBox1.Controls.Add(this.limitReadyBox);
             this.groupBox1.Controls.Add(this.limitNewBox);
@@ -246,21 +248,21 @@
             this.label25.TabIndex = 2;
             this.label25.Text = "%";
             // 
-            // textBox2
+            // ioTimeBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(89, 292);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(31, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "2";
+            this.ioTimeBox.Location = new System.Drawing.Point(89, 292);
+            this.ioTimeBox.Name = "ioTimeBox";
+            this.ioTimeBox.Size = new System.Drawing.Size(31, 20);
+            this.ioTimeBox.TabIndex = 1;
+            this.ioTimeBox.Text = "2";
             // 
-            // textBox1
+            // cpuAvgTimeBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 252);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(31, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "5";
+            this.cpuAvgTimeBox.Location = new System.Drawing.Point(89, 252);
+            this.cpuAvgTimeBox.Name = "cpuAvgTimeBox";
+            this.cpuAvgTimeBox.Size = new System.Drawing.Size(31, 20);
+            this.cpuAvgTimeBox.TabIndex = 1;
+            this.cpuAvgTimeBox.Text = "5";
             // 
             // limitWaitingIOBox
             // 
@@ -531,15 +533,15 @@
             this.speedSlow.UseVisualStyleBackColor = true;
             this.speedSlow.Click += new System.EventHandler(this.speedSlow_Click);
             // 
-            // speedMedium
+            // speedNormal
             // 
-            this.speedMedium.Location = new System.Drawing.Point(297, 5);
-            this.speedMedium.Name = "speedMedium";
-            this.speedMedium.Size = new System.Drawing.Size(75, 23);
-            this.speedMedium.TabIndex = 20;
-            this.speedMedium.Text = "MEDIUM";
-            this.speedMedium.UseVisualStyleBackColor = true;
-            this.speedMedium.Click += new System.EventHandler(this.speedMedium_Click);
+            this.speedNormal.Location = new System.Drawing.Point(297, 5);
+            this.speedNormal.Name = "speedNormal";
+            this.speedNormal.Size = new System.Drawing.Size(75, 23);
+            this.speedNormal.TabIndex = 20;
+            this.speedNormal.Text = "NORMAL";
+            this.speedNormal.UseVisualStyleBackColor = true;
+            this.speedNormal.Click += new System.EventHandler(this.speedMedium_Click);
             // 
             // speedFast
             // 
@@ -556,13 +558,31 @@
             this.aTimer.Interval = 1000;
             this.aTimer.Tick += new System.EventHandler(this.aTimer_Tick);
             // 
+            // boxUsingIO
+            // 
+            this.boxUsingIO.Location = new System.Drawing.Point(101, 87);
+            this.boxUsingIO.Multiline = true;
+            this.boxUsingIO.Name = "boxUsingIO";
+            this.boxUsingIO.ReadOnly = true;
+            this.boxUsingIO.Size = new System.Drawing.Size(47, 19);
+            this.boxUsingIO.TabIndex = 5;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(99, 70);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(53, 13);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Using I/O";
+            // 
             // mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 649);
             this.Controls.Add(this.speedFast);
-            this.Controls.Add(this.speedMedium);
+            this.Controls.Add(this.speedNormal);
             this.Controls.Add(this.speedSlow);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -578,10 +598,12 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label26);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelWaiting);
+            this.Controls.Add(this.boxUsingIO);
             this.Controls.Add(this.boxRunning);
             this.Controls.Add(this.pcbBox);
             this.Controls.Add(this.boxFinished);
@@ -631,8 +653,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ioTimeBox;
+        private System.Windows.Forms.TextBox cpuAvgTimeBox;
         private System.Windows.Forms.TextBox limitWaitingIOBox;
         private System.Windows.Forms.TextBox limitReadyBox;
         private System.Windows.Forms.TextBox limitNewBox;
@@ -651,9 +673,11 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button speedSlow;
-        private System.Windows.Forms.Button speedMedium;
+        private System.Windows.Forms.Button speedNormal;
         private System.Windows.Forms.Button speedFast;
         private System.Windows.Forms.Timer aTimer;
+        private System.Windows.Forms.TextBox boxUsingIO;
+        private System.Windows.Forms.Label label26;
     }
 }
 

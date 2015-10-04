@@ -8,7 +8,7 @@ namespace OSSIM
 {
     class Process
     {
-        private int id { get; set; }
+        public int id { get; set; }
         private int runningTime { get; set; }
         private int ioUsageTime { get; set; }
         private int ioStartTime { get; set; }
@@ -20,9 +20,12 @@ namespace OSSIM
             ioStartTime = 2;
         }
 
-        public Process(int identificator, int runTimeAverage, int ioTimeAverage)
+        public Process(int id, int runTimeAverage, int ioTime)
         {
-
+            Random rnd = new Random();
+            runningTime = rnd.Next(runTimeAverage - 2, runTimeAverage + 2);
+            ioUsageTime = ioTime;
+            ioStartTime = rnd.Next(2, runningTime);
         }
     }
 }
