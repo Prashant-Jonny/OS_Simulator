@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.clockLabel = new System.Windows.Forms.Label();
             this.quantumLabel = new System.Windows.Forms.Label();
             this.clockNumLabel = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@
             this.speedSlow = new System.Windows.Forms.Button();
             this.speedMedium = new System.Windows.Forms.Button();
             this.speedFast = new System.Windows.Forms.Button();
+            this.aTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -250,6 +252,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(31, 20);
             this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "2";
             // 
             // textBox1
             // 
@@ -257,6 +260,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(31, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "5";
             // 
             // limitWaitingIOBox
             // 
@@ -264,6 +268,7 @@
             this.limitWaitingIOBox.Name = "limitWaitingIOBox";
             this.limitWaitingIOBox.Size = new System.Drawing.Size(31, 20);
             this.limitWaitingIOBox.TabIndex = 1;
+            this.limitWaitingIOBox.Text = "5";
             // 
             // limitReadyBox
             // 
@@ -271,6 +276,7 @@
             this.limitReadyBox.Name = "limitReadyBox";
             this.limitReadyBox.Size = new System.Drawing.Size(31, 20);
             this.limitReadyBox.TabIndex = 1;
+            this.limitReadyBox.Text = "5";
             // 
             // limitNewBox
             // 
@@ -278,6 +284,7 @@
             this.limitNewBox.Name = "limitNewBox";
             this.limitNewBox.Size = new System.Drawing.Size(31, 20);
             this.limitNewBox.TabIndex = 1;
+            this.limitNewBox.Text = "5";
             // 
             // quantumBox
             // 
@@ -285,6 +292,7 @@
             this.quantumBox.Name = "quantumBox";
             this.quantumBox.Size = new System.Drawing.Size(31, 20);
             this.quantumBox.TabIndex = 1;
+            this.quantumBox.Text = "5";
             // 
             // newProcessProbBox
             // 
@@ -292,6 +300,7 @@
             this.newProcessProbBox.Name = "newProcessProbBox";
             this.newProcessProbBox.Size = new System.Drawing.Size(31, 20);
             this.newProcessProbBox.TabIndex = 1;
+            this.newProcessProbBox.Text = "100";
             // 
             // label19
             // 
@@ -520,6 +529,7 @@
             this.speedSlow.TabIndex = 20;
             this.speedSlow.Text = "SLOW";
             this.speedSlow.UseVisualStyleBackColor = true;
+            this.speedSlow.Click += new System.EventHandler(this.speedSlow_Click);
             // 
             // speedMedium
             // 
@@ -529,6 +539,7 @@
             this.speedMedium.TabIndex = 20;
             this.speedMedium.Text = "MEDIUM";
             this.speedMedium.UseVisualStyleBackColor = true;
+            this.speedMedium.Click += new System.EventHandler(this.speedMedium_Click);
             // 
             // speedFast
             // 
@@ -538,6 +549,12 @@
             this.speedFast.TabIndex = 20;
             this.speedFast.Text = "FAST";
             this.speedFast.UseVisualStyleBackColor = true;
+            this.speedFast.Click += new System.EventHandler(this.speedFast_Click);
+            // 
+            // aTimer
+            // 
+            this.aTimer.Interval = 1000;
+            this.aTimer.Tick += new System.EventHandler(this.aTimer_Tick);
             // 
             // mainMenu
             // 
@@ -636,6 +653,7 @@
         private System.Windows.Forms.Button speedSlow;
         private System.Windows.Forms.Button speedMedium;
         private System.Windows.Forms.Button speedFast;
+        private System.Windows.Forms.Timer aTimer;
     }
 }
 
