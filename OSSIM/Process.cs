@@ -8,14 +8,21 @@ namespace OSSIM
 {
     class Process
     {
-        private int id;
-        private int runningTime;
-        private int ioUsageTime;
+        private int id { get; set; }
+        private int runningTime { get; set; }
+        private int ioUsageTime { get; set; }
+        private int ioStartTime { get; set; }
 
         public Process()
         {
-            runningTime = 1;
-            ioUsageTime = 1;
+            runningTime = 5;
+            ioUsageTime = 2;
+            ioStartTime = 2;
+        }
+
+        public Process(int identificator, int runTimeAverage, int ioTimeAverage)
+        {
+
         }
     }
 }
