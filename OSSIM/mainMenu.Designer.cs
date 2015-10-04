@@ -75,6 +75,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.speedSlow = new System.Windows.Forms.Button();
+            this.speedMedium = new System.Windows.Forms.Button();
+            this.speedFast = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -509,11 +512,41 @@
             this.label13.TabIndex = 19;
             this.label13.Text = "Total";
             // 
+            // speedSlow
+            // 
+            this.speedSlow.Location = new System.Drawing.Point(216, 5);
+            this.speedSlow.Name = "speedSlow";
+            this.speedSlow.Size = new System.Drawing.Size(75, 23);
+            this.speedSlow.TabIndex = 20;
+            this.speedSlow.Text = "SLOW";
+            this.speedSlow.UseVisualStyleBackColor = true;
+            // 
+            // speedMedium
+            // 
+            this.speedMedium.Location = new System.Drawing.Point(297, 5);
+            this.speedMedium.Name = "speedMedium";
+            this.speedMedium.Size = new System.Drawing.Size(75, 23);
+            this.speedMedium.TabIndex = 20;
+            this.speedMedium.Text = "MEDIUM";
+            this.speedMedium.UseVisualStyleBackColor = true;
+            // 
+            // speedFast
+            // 
+            this.speedFast.Location = new System.Drawing.Point(378, 5);
+            this.speedFast.Name = "speedFast";
+            this.speedFast.Size = new System.Drawing.Size(75, 23);
+            this.speedFast.TabIndex = 20;
+            this.speedFast.Text = "FAST";
+            this.speedFast.UseVisualStyleBackColor = true;
+            // 
             // mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 649);
+            this.Controls.Add(this.speedFast);
+            this.Controls.Add(this.speedMedium);
+            this.Controls.Add(this.speedSlow);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -600,6 +633,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button speedSlow;
+        private System.Windows.Forms.Button speedMedium;
+        private System.Windows.Forms.Button speedFast;
     }
 }
 
