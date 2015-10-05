@@ -81,7 +81,7 @@
             this.aTimer = new System.Windows.Forms.Timer(this.components);
             this.boxUsingIO = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.bogLogID = new System.Windows.Forms.TextBox();
+            this.boxLogID = new System.Windows.Forms.TextBox();
             this.boxLogArrivalTime = new System.Windows.Forms.TextBox();
             this.boxLogCPUUsage = new System.Windows.Forms.TextBox();
             this.boxLogAccumCPU = new System.Windows.Forms.TextBox();
@@ -302,7 +302,7 @@
             this.quantumBox.Name = "quantumBox";
             this.quantumBox.Size = new System.Drawing.Size(31, 20);
             this.quantumBox.TabIndex = 1;
-            this.quantumBox.Text = "5";
+            this.quantumBox.Text = "2";
             // 
             // newProcessProbBox
             // 
@@ -575,14 +575,14 @@
             this.label26.TabIndex = 8;
             this.label26.Text = "Using I/O";
             // 
-            // bogLogID
+            // boxLogID
             // 
-            this.bogLogID.Location = new System.Drawing.Point(228, 70);
-            this.bogLogID.Multiline = true;
-            this.bogLogID.Name = "bogLogID";
-            this.bogLogID.ReadOnly = true;
-            this.bogLogID.Size = new System.Drawing.Size(46, 570);
-            this.bogLogID.TabIndex = 5;
+            this.boxLogID.Location = new System.Drawing.Point(228, 70);
+            this.boxLogID.Multiline = true;
+            this.boxLogID.Name = "boxLogID";
+            this.boxLogID.ReadOnly = true;
+            this.boxLogID.Size = new System.Drawing.Size(46, 570);
+            this.boxLogID.TabIndex = 5;
             // 
             // boxLogArrivalTime
             // 
@@ -657,6 +657,7 @@
             this.comboAlgorithm.Name = "comboAlgorithm";
             this.comboAlgorithm.Size = new System.Drawing.Size(91, 21);
             this.comboAlgorithm.TabIndex = 3;
+            this.comboAlgorithm.Text = "RR";
             // 
             // mainMenu
             // 
@@ -694,7 +695,7 @@
             this.Controls.Add(this.boxLogAccumCPU);
             this.Controls.Add(this.boxLogCPUUsage);
             this.Controls.Add(this.boxLogArrivalTime);
-            this.Controls.Add(this.bogLogID);
+            this.Controls.Add(this.boxLogID);
             this.Controls.Add(this.boxFinished);
             this.Controls.Add(this.boxNew);
             this.Controls.Add(this.boxReady);
@@ -766,7 +767,7 @@
         private System.Windows.Forms.Timer aTimer;
         private System.Windows.Forms.TextBox boxUsingIO;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox bogLogID;
+        private System.Windows.Forms.TextBox boxLogID;
         private System.Windows.Forms.TextBox boxLogArrivalTime;
         private System.Windows.Forms.TextBox boxLogCPUUsage;
         private System.Windows.Forms.TextBox boxLogAccumCPU;

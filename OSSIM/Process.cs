@@ -18,9 +18,10 @@ namespace OSSIM
         public int logArrivalTime { get; set; }
         public int logCPUUsageTime { get; set; }
         public int logIOStartTime { get; set; }
-        public int logAccumulatedUsage { get; set; }
         public int logIOUsageTime { get; set; }
         public int logEndTime { get; set; }
+
+        public int logAccumulatedUsage { get; set; }
         public int logSystemTime { get; set; }
 
         public Process()
