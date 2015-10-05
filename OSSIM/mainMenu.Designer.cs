@@ -108,9 +108,8 @@
             this.clockNumLabel.AutoSize = true;
             this.clockNumLabel.Location = new System.Drawing.Point(58, 9);
             this.clockNumLabel.Name = "clockNumLabel";
-            this.clockNumLabel.Size = new System.Drawing.Size(13, 13);
+            this.clockNumLabel.Size = new System.Drawing.Size(0, 13);
             this.clockNumLabel.TabIndex = 2;
-            this.clockNumLabel.Text = "0";
             // 
             // quantumNumLabel
             // 

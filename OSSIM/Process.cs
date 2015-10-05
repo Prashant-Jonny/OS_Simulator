@@ -8,24 +8,35 @@ namespace OSSIM
 {
     class Process
     {
+        //properties
         public int id { get; set; }
-        private int runningTime { get; set; }
-        private int ioUsageTime { get; set; }
-        private int ioStartTime { get; set; }
+        public int cpuUsageTime { get; set; }
+        public int ioUsageTime { get; set; }
+        public int ioStartTime { get; set; }
+
+        //logs
+        public int logArrivalTime { get; set; }
+        public int logCPUUsageTime { get; set; }
+        public int logIOStartTime { get; set; }
+        public int logAccumulatedUsage { get; set; }
+        public int logIOUsageTime { get; set; }
+        public int logEndTime { get; set; }
+        public int logSystemTime { get; set; }
 
         public Process()
         {
-            runningTime = 5;
-            ioUsageTime = 2;
-            ioStartTime = 2;
         }
 
         public Process(int id, int runTimeAverage, int ioTime)
         {
             Random rnd = new Random();
-            runningTime = rnd.Next(runTimeAverage - 2, runTimeAverage + 2);
+            cpuUsageTime = rnd.Next(runTimeAverage - 2, runTimeAverage + 2);
             ioUsageTime = ioTime;
-            ioStartTime = rnd.Next(2, runningTime);
+            ioStartTime = rnd.Next(2, cpuUsageTime);
+
+            logCPUUsageTime = cpuUsageTime;
+            logIOStartTime = ioStartTime;
+            logIOUsageTime = ioUsageTime;
         }
     }
 }
