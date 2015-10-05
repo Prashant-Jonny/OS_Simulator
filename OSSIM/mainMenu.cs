@@ -36,6 +36,7 @@ namespace OSSIM
             InitializeComponent();
             aTimer.Interval = 1000;
             clock = 0;
+            clockNumLabel.Text = "0";
         }
 
         private void playButton_Click(object sender, EventArgs e)
@@ -44,6 +45,7 @@ namespace OSSIM
             {
                 aTimer.Start();
             }
+            disableParameters();
         }
 
         private void stopButton_Click(object sender, EventArgs e)
@@ -52,7 +54,8 @@ namespace OSSIM
             {
                 aTimer.Stop();
             }
-            clearQueues();
+            clear();
+            enableParameters();
         }
 
         private void pauseButton_Click(object sender, EventArgs e)
@@ -78,9 +81,81 @@ namespace OSSIM
             aTimer.Interval = 500;
         }
 
+        // Where the magic happens
         private void aTimer_Tick(object sender, EventArgs e)
         {
             updateClock();
+            if (comboAlgorithm.Text == "FIFO")
+                FIFO();
+            else if (comboAlgorithm.Text == "RR")
+                MessageBox.Show("NOTHING HERE YET");
+            else
+            {
+                aTimer.Stop();
+                clear();
+                MessageBox.Show("You didn't choose an algorithm!");
+                enableParameters();
+            }
+
+            updateText();
+        }
+
+        private void updateClock()
+        {
+            clock++;
+            clockNumLabel.Text = clock.ToString();
+        }
+
+        private void updateText()
+        {
+            boxNew.Text = displayMembers(newQueue);
+            boxReady.Text = displayMembers(readyQueue);
+            boxRunning.Text = displayMembers(runningQueue);
+            boxUsingIO.Text = displayMembers(usingIOQueue);
+            boxWaiting.Text = displayMembers(waitingQueue);
+            boxFinished.Text = displayMembers(finishedQueue);
+        }
+
+
+        private string displayMembers(Queue<Process> Queue)
+        {
+            string temp = "";
+
+            foreach (Process p in Queue)
+            {
+                temp += p.id.ToString();
+                temp += "\r\n";
+            }
+
+            return temp;
+        }
+
+
+        // Deletes every value from the objects and clears the text boxes.
+        private void clear()
+        {
+            clock = 0;
+            clockNumLabel.Text = clock.ToString();
+
+            Processes.Clear();
+
+            newQueue.Clear();
+            readyQueue.Clear();
+            runningQueue.Clear();
+            waitingQueue.Clear();
+            usingIOQueue.Clear();
+            finishedQueue.Clear();
+
+            boxNew.Text = "";
+            boxReady.Text = "";
+            boxRunning.Text = "";
+            boxUsingIO.Text = "";
+            boxWaiting.Text = "";
+            boxFinished.Text = "";
+        }
+
+        private void FIFO()
+        {
 
             /*
              * 
@@ -91,27 +166,44 @@ namespace OSSIM
 
             // Creates new process depending on the probability (%) and if the new process list limit is not being passed
             // with the parameters on CPU average usage time and IO usage time
-            if (rnd.Next(1, 101) <= Int32.Parse(newProcessProbBox.Text) && newQueue.Count < Int32.Parse(limitNewBox.Text))
+            try
             {
-                Process temp = new Process(Processes.Count, Int32.Parse(cpuAvgTimeBox.Text), Int32.Parse(ioTimeBox.Text));
-                temp.logArrivalTime = clock;
-                Processes.Add(temp);
-                newQueue.Enqueue(temp);
+                if (rnd.Next(1, 101) <= Int32.Parse(newProcessProbBox.Text) && newQueue.Count < Int32.Parse(limitNewBox.Text))
+                {
+                    Process temp = new Process(Processes.Count, Int32.Parse(cpuAvgTimeBox.Text), Int32.Parse(ioTimeBox.Text));
+                    temp.logArrivalTime = clock;
+                    Processes.Add(temp);
+                    newQueue.Enqueue(temp);
+                }
+            }
+            catch (FormatException e)
+            {
+                parameterError();
             }
 
+            updateText();
 
             // Enqueues a process into the readyQueue if it's not going over the limit and the newQueue has more than 0 elements
-            if (readyQueue.Count < Int32.Parse(limitReadyBox.Text) && newQueue.Count > 0)
+            try
             {
-                readyQueue.Enqueue(newQueue.Dequeue());
+                if (readyQueue.Count < Int32.Parse(limitReadyBox.Text) && newQueue.Count > 0)
+                {
+                    readyQueue.Enqueue(newQueue.Dequeue());
+                }
+            }
+            catch (FormatException e)
+            {
+                parameterError();
             }
 
+            updateText();
 
             // Enqueues a process into the runningQueue if it's empty
             // else it continues running the process that's already inside
             if (runningQueue.Count < 1 && readyQueue.Count > 0)
             {
                 runningQueue.Enqueue(readyQueue.Dequeue());
+                updateText();
             }
             else if (runningQueue.Count > 0)
             {
@@ -126,6 +218,8 @@ namespace OSSIM
                 else
                     temp.cpuUsageTime -= 1;
 
+                updateText();
+
                 // Enqueues a process into the waitingQueue if it needs to use an I/O device
                 // else it lowers the value of ioStartTime which represents when it's going to need to use an I/O device
                 if (temp.ioStartTime == 0)
@@ -137,6 +231,8 @@ namespace OSSIM
                 }
                 else
                     temp.ioStartTime -= 1;
+                
+                updateText();
 
             }
 
@@ -162,34 +258,36 @@ namespace OSSIM
             }
         }
 
-        private void updateClock()
+        private void parameterError()
         {
-            clock++;
-            clockNumLabel.Text = clock.ToString();
-        }
-
-        private void updateText()
-        {
+            aTimer.Stop();
+            clear();
+            MessageBox.Show("Error in parameters! Please use the correct format!");
 
         }
 
-        private string displayMembers()
+        private void disableParameters()
         {
-            foreach (Process p in newQueue)
-            {
-                return p.id.ToString();
-            }
-            return null;
+            newProcessProbBox.Enabled = false;
+            comboAlgorithm.Enabled = false;
+            quantumBox.Enabled = false;
+            limitNewBox.Enabled = false;
+            limitReadyBox.Enabled = false;
+            limitWaitingIOBox.Enabled = false;
+            cpuAvgTimeBox.Enabled = false;
+            ioTimeBox.Enabled = false;
         }
 
-        private void clearQueues()
+        private void enableParameters()
         {
-            newQueue.Clear();
-            readyQueue.Clear();
-            runningQueue.Clear();
-            waitingQueue.Clear();
-            usingIOQueue.Clear();
-            finishedQueue.Clear();
+            newProcessProbBox.Enabled = true;
+            comboAlgorithm.Enabled = true;
+            quantumBox.Enabled = true;
+            limitNewBox.Enabled = true;
+            limitReadyBox.Enabled = true;
+            limitWaitingIOBox.Enabled = true;
+            cpuAvgTimeBox.Enabled = true;
+            ioTimeBox.Enabled = true;
         }
     }
 }

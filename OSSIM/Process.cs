@@ -27,8 +27,9 @@ namespace OSSIM
         {
         }
 
-        public Process(int id, int runTimeAverage, int ioTime)
+        public Process(int ident, int runTimeAverage, int ioTime)
         {
+            id = ident;
             Random rnd = new Random();
             cpuUsageTime = rnd.Next(runTimeAverage - 2, runTimeAverage + 2);
             ioUsageTime = ioTime;
