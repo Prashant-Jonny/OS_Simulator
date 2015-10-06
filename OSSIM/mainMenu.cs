@@ -18,12 +18,6 @@ namespace OSSIM
         private int clock;
         private int quantum;
         Random rnd = new Random();
-        /*List<String> newProcess = new List<String>();
-        List<String> ready = new List<String>();
-        List<String> running = new List<String>();
-        List<String> waiting = new List<String>();
-        List<String> usingIO = new List<String>();
-        List<String> finished = new List<String>();*/
         Queue<Process> newQueue = new Queue<Process>();
         Queue<Process> readyQueue = new Queue<Process>();
         Queue<Process> runningQueue = new Queue<Process>();
@@ -71,23 +65,22 @@ namespace OSSIM
 
         private void speedSlow_Click(object sender, EventArgs e)
         {
-            aTimer.Interval = 2000;
+            aTimer.Interval = 1500;
         }
 
         private void speedMedium_Click(object sender, EventArgs e)
         {
-            aTimer.Interval = 1000;
+            aTimer.Interval = 750;
         }
 
         private void speedFast_Click(object sender, EventArgs e)
         {
-            aTimer.Interval = 500;
+            aTimer.Interval = 250;
         }
 
         // Where the magic happens
         private void aTimer_Tick(object sender, EventArgs e)
         {
-            checkParameters();
 
             updateClock();
             if (comboAlgorithm.Text == "FIFO")
@@ -202,7 +195,7 @@ namespace OSSIM
             // Enqueues a process into the readyQueue if it's not going over the limit and the newQueue has more than 0 elements
             try
             {
-                if (readyQueue.Count < Int32.Parse(limitReadyBox.Text) && newQueue.Count > 0)
+                if (readyQueue.Count < Int32.Parse(limitReadyBox.Text) - 1 && newQueue.Count > 0)
                 {
                     readyQueue.Enqueue(newQueue.Dequeue());
                 }
@@ -225,28 +218,31 @@ namespace OSSIM
             {
                 Process temp = runningQueue.Peek();
 
-                // Enqueues a process into the finishedQueue if it no longer needs to use the CPU
-                // else it lowers the value of cpuUsageTime which represents how long it needs to be running
-                if (temp.cpuUsageTime == 0)
+                if (temp.ioStartTime != 0)
                 {
-                    temp.logEndTime = clock;
-                    finishedQueue.Enqueue(runningQueue.Dequeue());
+                    // Enqueues a process into the finishedQueue if it no longer needs to use the CPU
+                    // else it lowers the value of cpuUsageTime which represents how long it needs to be running
+                    if (temp.cpuUsageTime == 0)
+                    {
+                        temp.logEndTime = clock;
+                        finishedQueue.Enqueue(runningQueue.Dequeue());
+                    }
+                    else
+                        temp.cpuUsageTime -= 1;
                 }
-                else
-                    temp.cpuUsageTime -= 1;
 
                 updateText();
 
                 // Enqueues a process into the waitingQueue if it needs to use an I/O device
                 // else it lowers the value of ioStartTime which represents when it's going to need to use an I/O device
-                if (temp.ioStartTime == 0)
+                if (temp.ioStartTime == 0 && waitingQueue.Count < Int32.Parse(limitWaitingIOBox.Text))
                 {
                     // It lowers the value to -1 so that next time it comes to the runningQueue it doesn't go
                     // through this "if"
                     temp.ioStartTime -= 1;
                     waitingQueue.Enqueue(runningQueue.Dequeue());
                 }
-                else
+                else if (temp.ioStartTime > 0)
                     temp.ioStartTime -= 1;
                 
                 updateText();
@@ -306,7 +302,7 @@ namespace OSSIM
             // Enqueues a process into the readyQueue if it's not going over the limit and the newQueue has more than 0 elements
             try
             {
-                if (readyQueue.Count < Int32.Parse(limitReadyBox.Text) && newQueue.Count > 0)
+                if (readyQueue.Count < Int32.Parse(limitReadyBox.Text) - 1 && newQueue.Count > 0)
                 {
                     readyQueue.Enqueue(newQueue.Dequeue());
                 }
@@ -335,31 +331,37 @@ namespace OSSIM
 
                 Process temp = runningQueue.Peek();
 
-
-                // Enqueues a process into the finishedQueue if it no longer needs to use the CPU
-                // else it lowers the value of cpuUsageTime which represents how long it needs to be running
-                if (temp.cpuUsageTime == 0)
+                if (temp.ioStartTime != 0)
                 {
-                    temp.logEndTime = clock;
-                    finishedQueue.Enqueue(runningQueue.Dequeue());
+                    // Enqueues a process into the finishedQueue if it no longer needs to use the CPU
+                    // else it lowers the value of cpuUsageTime which represents how long it needs to be running
+                    if (temp.cpuUsageTime == 0)
+                    {
+                        temp.logEndTime = clock;
+                        finishedQueue.Enqueue(runningQueue.Dequeue());
+                    }
+                    else
+                        temp.cpuUsageTime -= 1;
                 }
-                else
-                    temp.cpuUsageTime -= 1;
-
                 updateText();
-
-                // Enqueues a process into the waitingQueue if it needs to use an I/O device
-                // else it lowers the value of ioStartTime which represents when it's going to need to use an I/O device
-                if (temp.ioStartTime == 0)
+                try
                 {
-                    // It lowers the value to -1 so that next time it comes to the runningQueue it doesn't go
-                    // through this "if"
-                    temp.ioStartTime -= 1;
-                    waitingQueue.Enqueue(runningQueue.Dequeue());
+                    // Enqueues a process into the waitingQueue if it needs to use an I/O device
+                    // else it lowers the value of ioStartTime which represents when it's going to need to use an I/O device
+                    if (temp.ioStartTime == 0 && waitingQueue.Count < Int32.Parse(limitWaitingIOBox.Text))
+                    {
+                        // It lowers the value to -1 so that next time it comes to the runningQueue it doesn't go
+                        // through this "if"
+                        temp.ioStartTime -= 1;
+                        waitingQueue.Enqueue(runningQueue.Dequeue());
+                    }
+                    else if (temp.ioStartTime > 0)
+                        temp.ioStartTime -= 1;
                 }
-                else
-                    temp.ioStartTime -= 1;
-
+                catch (FormatException e)
+                {
+                    parameterError("Error in waiting list limit!");
+                }
                 updateText();
 
             }
@@ -386,18 +388,12 @@ namespace OSSIM
             }
         }
 
-        private void checkParameters()
-        {
-
-        }
-
         private void parameterError(string error)
         {
             aTimer.Stop();
             clear();
             MessageBox.Show(error);
             enableParameters();
-
         }
 
         private void disableParameters()

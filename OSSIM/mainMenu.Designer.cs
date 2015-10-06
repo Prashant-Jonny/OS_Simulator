@@ -44,6 +44,7 @@
             this.boxNew = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboAlgorithm = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.ioTimeBox = new System.Windows.Forms.TextBox();
             this.cpuAvgTimeBox = new System.Windows.Forms.TextBox();
@@ -63,9 +64,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.playButton = new System.Windows.Forms.Button();
-            this.pauseButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -89,7 +87,9 @@
             this.boxLogIOArrival = new System.Windows.Forms.TextBox();
             this.boxLogEnd = new System.Windows.Forms.TextBox();
             this.boxLogTotal = new System.Windows.Forms.TextBox();
-            this.comboAlgorithm = new System.Windows.Forms.ComboBox();
+            this.pauseButton = new System.Windows.Forms.Button();
+            this.playButton = new System.Windows.Forms.Button();
+            this.stopButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,7 +161,8 @@
             this.boxFinished.Multiline = true;
             this.boxFinished.Name = "boxFinished";
             this.boxFinished.ReadOnly = true;
-            this.boxFinished.Size = new System.Drawing.Size(46, 198);
+            this.boxFinished.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.boxFinished.Size = new System.Drawing.Size(52, 198);
             this.boxFinished.TabIndex = 5;
             // 
             // labelWaiting
@@ -246,6 +247,18 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parameters";
+            // 
+            // comboAlgorithm
+            // 
+            this.comboAlgorithm.FormattingEnabled = true;
+            this.comboAlgorithm.Items.AddRange(new object[] {
+            "FIFO",
+            "RR"});
+            this.comboAlgorithm.Location = new System.Drawing.Point(86, 69);
+            this.comboAlgorithm.Name = "comboAlgorithm";
+            this.comboAlgorithm.Size = new System.Drawing.Size(91, 21);
+            this.comboAlgorithm.TabIndex = 3;
+            this.comboAlgorithm.Text = "RR";
             // 
             // label25
             // 
@@ -410,36 +423,6 @@
             this.label14.Size = new System.Drawing.Size(67, 26);
             this.label14.TabIndex = 0;
             this.label14.Text = "Probability of\r\nnew process";
-            // 
-            // stopButton
-            // 
-            this.stopButton.Location = new System.Drawing.Point(36, 251);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(37, 34);
-            this.stopButton.TabIndex = 11;
-            this.stopButton.Text = "STOP";
-            this.stopButton.UseVisualStyleBackColor = true;
-            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
-            // 
-            // playButton
-            // 
-            this.playButton.Location = new System.Drawing.Point(79, 251);
-            this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(37, 34);
-            this.playButton.TabIndex = 11;
-            this.playButton.Text = "PLAY";
-            this.playButton.UseVisualStyleBackColor = true;
-            this.playButton.Click += new System.EventHandler(this.playButton_Click);
-            // 
-            // pauseButton
-            // 
-            this.pauseButton.Location = new System.Drawing.Point(122, 251);
-            this.pauseButton.Name = "pauseButton";
-            this.pauseButton.Size = new System.Drawing.Size(37, 34);
-            this.pauseButton.TabIndex = 11;
-            this.pauseButton.Text = "PAUSE";
-            this.pauseButton.UseVisualStyleBackColor = true;
-            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
             // label5
             // 
@@ -647,23 +630,41 @@
             this.boxLogTotal.Size = new System.Drawing.Size(46, 570);
             this.boxLogTotal.TabIndex = 5;
             // 
-            // comboAlgorithm
+            // pauseButton
             // 
-            this.comboAlgorithm.FormattingEnabled = true;
-            this.comboAlgorithm.Items.AddRange(new object[] {
-            "FIFO",
-            "RR"});
-            this.comboAlgorithm.Location = new System.Drawing.Point(86, 69);
-            this.comboAlgorithm.Name = "comboAlgorithm";
-            this.comboAlgorithm.Size = new System.Drawing.Size(91, 21);
-            this.comboAlgorithm.TabIndex = 3;
-            this.comboAlgorithm.Text = "RR";
+            this.pauseButton.Image = global::OSSIM.Properties.Resources.Pause;
+            this.pauseButton.Location = new System.Drawing.Point(122, 251);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(37, 34);
+            this.pauseButton.TabIndex = 11;
+            this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
+            // 
+            // playButton
+            // 
+            this.playButton.Image = global::OSSIM.Properties.Resources.Play;
+            this.playButton.Location = new System.Drawing.Point(79, 251);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(37, 34);
+            this.playButton.TabIndex = 11;
+            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            // 
+            // stopButton
+            // 
+            this.stopButton.Image = global::OSSIM.Properties.Resources.Stop;
+            this.stopButton.Location = new System.Drawing.Point(36, 251);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(37, 34);
+            this.stopButton.TabIndex = 11;
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 649);
+            this.ClientSize = new System.Drawing.Size(745, 649);
             this.Controls.Add(this.speedFast);
             this.Controls.Add(this.speedNormal);
             this.Controls.Add(this.speedSlow);
@@ -705,7 +706,7 @@
             this.Controls.Add(this.quantumLabel);
             this.Controls.Add(this.clockLabel);
             this.Name = "mainMenu";
-            this.Text = "Form1";
+            this.Text = " CactOS";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
