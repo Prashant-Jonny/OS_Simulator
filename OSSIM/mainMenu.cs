@@ -17,6 +17,7 @@ namespace OSSIM
         List<Process> Processes = new List<Process>();
         private int clock;
         private int quantum;
+        private bool pause;
         Random rnd = new Random();
         Queue<Process> newQueue = new Queue<Process>();
         Queue<Process> readyQueue = new Queue<Process>();
@@ -41,6 +42,7 @@ namespace OSSIM
             if (!aTimer.Enabled)
             {
                 aTimer.Start();
+                pause = false;
             }
             disableParameters();
         }
@@ -59,8 +61,9 @@ namespace OSSIM
         {
             if (aTimer.Enabled)
             {
-                aTimer.Stop();
+                pause = true;
             }
+            enableParameters();
         }
 
         private void speedSlow_Click(object sender, EventArgs e)
@@ -93,6 +96,12 @@ namespace OSSIM
             }
 
             updateText();
+
+            if (pause == true)
+            {
+                aTimer.Stop();
+            }
+
         }
 
         private void updateClock()
