@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainMenu));
             this.clockLabel = new System.Windows.Forms.Label();
             this.quantumLabel = new System.Windows.Forms.Label();
             this.clockNumLabel = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.boxNew = new System.Windows.Forms.TextBox();
+            this.boxHold = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboAlgorithm = new System.Windows.Forms.ComboBox();
@@ -64,7 +65,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,25 +72,24 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.speedSlow = new System.Windows.Forms.Button();
             this.speedNormal = new System.Windows.Forms.Button();
             this.speedFast = new System.Windows.Forms.Button();
             this.aTimer = new System.Windows.Forms.Timer(this.components);
             this.boxUsingIO = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.boxLogID = new System.Windows.Forms.TextBox();
-            this.boxLogArrivalTime = new System.Windows.Forms.TextBox();
-            this.boxLogCPUUsage = new System.Windows.Forms.TextBox();
-            this.boxLogAccumCPU = new System.Windows.Forms.TextBox();
-            this.boxLogIOUsage = new System.Windows.Forms.TextBox();
-            this.boxLogIOArrival = new System.Windows.Forms.TextBox();
-            this.boxLogEnd = new System.Windows.Forms.TextBox();
-            this.boxLogTotal = new System.Windows.Forms.TextBox();
+            this.PCBbox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.speedFlash = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pauseButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // clockLabel
@@ -201,14 +200,14 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Finished";
             // 
-            // boxNew
+            // boxHold
             // 
-            this.boxNew.Location = new System.Drawing.Point(15, 47);
-            this.boxNew.Multiline = true;
-            this.boxNew.Name = "boxNew";
-            this.boxNew.ReadOnly = true;
-            this.boxNew.Size = new System.Drawing.Size(37, 198);
-            this.boxNew.TabIndex = 5;
+            this.boxHold.Location = new System.Drawing.Point(15, 47);
+            this.boxHold.Multiline = true;
+            this.boxHold.Name = "boxHold";
+            this.boxHold.ReadOnly = true;
+            this.boxHold.Size = new System.Drawing.Size(37, 198);
+            this.boxHold.TabIndex = 5;
             // 
             // label4
             // 
@@ -217,7 +216,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "New";
+            this.label4.Text = "Hold";
             // 
             // groupBox1
             // 
@@ -424,19 +423,10 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Probability of\r\nnew process";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "PCB";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(225, 53);
+            this.label6.Location = new System.Drawing.Point(228, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(18, 13);
             this.label6.TabIndex = 12;
@@ -445,71 +435,62 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(283, 53);
+            this.label7.Location = new System.Drawing.Point(258, 43);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.Size = new System.Drawing.Size(39, 26);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Arrival time";
+            this.label7.Text = "Arrival \r\ntime";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(348, 53);
+            this.label8.Location = new System.Drawing.Point(309, 43);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.Size = new System.Drawing.Size(36, 26);
             this.label8.TabIndex = 14;
-            this.label8.Text = "CPU usage";
+            this.label8.Text = "CPU \r\nusage";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(418, 41);
+            this.label9.Location = new System.Drawing.Point(357, 41);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 26);
+            this.label9.Size = new System.Drawing.Size(46, 26);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Accumulated \r\nCPU usage";
+            this.label9.Text = "Accum. \r\n usage";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(491, 50);
+            this.label10.Location = new System.Drawing.Point(462, 43);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.Size = new System.Drawing.Size(36, 26);
             this.label10.TabIndex = 16;
-            this.label10.Text = "I/O usage";
+            this.label10.Text = "I/O \r\nusage";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(556, 53);
+            this.label11.Location = new System.Drawing.Point(415, 43);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 13);
+            this.label11.Size = new System.Drawing.Size(35, 26);
             this.label11.TabIndex = 17;
-            this.label11.Text = "I/O arrival";
+            this.label11.Text = "I/O \r\narrival";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(619, 53);
+            this.label12.Location = new System.Drawing.Point(510, 43);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.Size = new System.Drawing.Size(26, 26);
             this.label12.TabIndex = 18;
-            this.label12.Text = "End time";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(681, 53);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Total";
+            this.label12.Text = "End\r\ntime";
             // 
             // speedSlow
             // 
-            this.speedSlow.Location = new System.Drawing.Point(216, 5);
+            this.speedSlow.Location = new System.Drawing.Point(216, 4);
             this.speedSlow.Name = "speedSlow";
-            this.speedSlow.Size = new System.Drawing.Size(75, 23);
+            this.speedSlow.Size = new System.Drawing.Size(61, 23);
             this.speedSlow.TabIndex = 20;
             this.speedSlow.Text = "SLOW";
             this.speedSlow.UseVisualStyleBackColor = true;
@@ -517,9 +498,9 @@
             // 
             // speedNormal
             // 
-            this.speedNormal.Location = new System.Drawing.Point(297, 5);
+            this.speedNormal.Location = new System.Drawing.Point(283, 4);
             this.speedNormal.Name = "speedNormal";
-            this.speedNormal.Size = new System.Drawing.Size(75, 23);
+            this.speedNormal.Size = new System.Drawing.Size(61, 23);
             this.speedNormal.TabIndex = 20;
             this.speedNormal.Text = "NORMAL";
             this.speedNormal.UseVisualStyleBackColor = true;
@@ -527,9 +508,9 @@
             // 
             // speedFast
             // 
-            this.speedFast.Location = new System.Drawing.Point(378, 5);
+            this.speedFast.Location = new System.Drawing.Point(350, 4);
             this.speedFast.Name = "speedFast";
-            this.speedFast.Size = new System.Drawing.Size(75, 23);
+            this.speedFast.Size = new System.Drawing.Size(61, 23);
             this.speedFast.TabIndex = 20;
             this.speedFast.Text = "FAST";
             this.speedFast.UseVisualStyleBackColor = true;
@@ -558,81 +539,58 @@
             this.label26.TabIndex = 8;
             this.label26.Text = "Using I/O";
             // 
-            // boxLogID
+            // PCBbox
             // 
-            this.boxLogID.Location = new System.Drawing.Point(228, 70);
-            this.boxLogID.Multiline = true;
-            this.boxLogID.Name = "boxLogID";
-            this.boxLogID.ReadOnly = true;
-            this.boxLogID.Size = new System.Drawing.Size(46, 570);
-            this.boxLogID.TabIndex = 5;
+            this.PCBbox.Location = new System.Drawing.Point(228, 70);
+            this.PCBbox.Multiline = true;
+            this.PCBbox.Name = "PCBbox";
+            this.PCBbox.ReadOnly = true;
+            this.PCBbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.PCBbox.Size = new System.Drawing.Size(508, 567);
+            this.PCBbox.TabIndex = 21;
             // 
-            // boxLogArrivalTime
+            // label13
             // 
-            this.boxLogArrivalTime.Location = new System.Drawing.Point(286, 70);
-            this.boxLogArrivalTime.Multiline = true;
-            this.boxLogArrivalTime.Name = "boxLogArrivalTime";
-            this.boxLogArrivalTime.ReadOnly = true;
-            this.boxLogArrivalTime.Size = new System.Drawing.Size(46, 570);
-            this.boxLogArrivalTime.TabIndex = 5;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(548, 43);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 26);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Time in\r\nSystem";
             // 
-            // boxLogCPUUsage
+            // label27
             // 
-            this.boxLogCPUUsage.Location = new System.Drawing.Point(351, 70);
-            this.boxLogCPUUsage.Multiline = true;
-            this.boxLogCPUUsage.Name = "boxLogCPUUsage";
-            this.boxLogCPUUsage.ReadOnly = true;
-            this.boxLogCPUUsage.Size = new System.Drawing.Size(46, 570);
-            this.boxLogCPUUsage.TabIndex = 5;
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(601, 43);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(38, 26);
+            this.label27.TabIndex = 18;
+            this.label27.Text = "Time \r\nwaited";
             // 
-            // boxLogAccumCPU
+            // speedFlash
             // 
-            this.boxLogAccumCPU.Location = new System.Drawing.Point(421, 70);
-            this.boxLogAccumCPU.Multiline = true;
-            this.boxLogAccumCPU.Name = "boxLogAccumCPU";
-            this.boxLogAccumCPU.ReadOnly = true;
-            this.boxLogAccumCPU.Size = new System.Drawing.Size(46, 570);
-            this.boxLogAccumCPU.TabIndex = 5;
+            this.speedFlash.Location = new System.Drawing.Point(417, 4);
+            this.speedFlash.Name = "speedFlash";
+            this.speedFlash.Size = new System.Drawing.Size(60, 23);
+            this.speedFlash.TabIndex = 22;
+            this.speedFlash.Text = "FLASH";
+            this.speedFlash.UseVisualStyleBackColor = true;
+            this.speedFlash.Click += new System.EventHandler(this.speedFlash_Click);
             // 
-            // boxLogIOUsage
+            // pictureBox1
             // 
-            this.boxLogIOUsage.Location = new System.Drawing.Point(494, 67);
-            this.boxLogIOUsage.Multiline = true;
-            this.boxLogIOUsage.Name = "boxLogIOUsage";
-            this.boxLogIOUsage.ReadOnly = true;
-            this.boxLogIOUsage.Size = new System.Drawing.Size(46, 570);
-            this.boxLogIOUsage.TabIndex = 5;
-            // 
-            // boxLogIOArrival
-            // 
-            this.boxLogIOArrival.Location = new System.Drawing.Point(559, 70);
-            this.boxLogIOArrival.Multiline = true;
-            this.boxLogIOArrival.Name = "boxLogIOArrival";
-            this.boxLogIOArrival.ReadOnly = true;
-            this.boxLogIOArrival.Size = new System.Drawing.Size(46, 570);
-            this.boxLogIOArrival.TabIndex = 5;
-            // 
-            // boxLogEnd
-            // 
-            this.boxLogEnd.Location = new System.Drawing.Point(622, 70);
-            this.boxLogEnd.Multiline = true;
-            this.boxLogEnd.Name = "boxLogEnd";
-            this.boxLogEnd.ReadOnly = true;
-            this.boxLogEnd.Size = new System.Drawing.Size(46, 570);
-            this.boxLogEnd.TabIndex = 5;
-            // 
-            // boxLogTotal
-            // 
-            this.boxLogTotal.Location = new System.Drawing.Point(684, 70);
-            this.boxLogTotal.Multiline = true;
-            this.boxLogTotal.Name = "boxLogTotal";
-            this.boxLogTotal.ReadOnly = true;
-            this.boxLogTotal.Size = new System.Drawing.Size(46, 570);
-            this.boxLogTotal.TabIndex = 5;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(695, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pauseButton
             // 
-            this.pauseButton.Image = global::OSSIM.Properties.Resources.Pause;
+            this.pauseButton.Image = ((System.Drawing.Image)(resources.GetObject("pauseButton.Image")));
             this.pauseButton.Location = new System.Drawing.Point(122, 251);
             this.pauseButton.Name = "pauseButton";
             this.pauseButton.Size = new System.Drawing.Size(37, 34);
@@ -642,7 +600,7 @@
             // 
             // playButton
             // 
-            this.playButton.Image = global::OSSIM.Properties.Resources.Play;
+            this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
             this.playButton.Location = new System.Drawing.Point(79, 251);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(37, 34);
@@ -652,7 +610,7 @@
             // 
             // stopButton
             // 
-            this.stopButton.Image = global::OSSIM.Properties.Resources.Stop;
+            this.stopButton.Image = ((System.Drawing.Image)(resources.GetObject("stopButton.Image")));
             this.stopButton.Location = new System.Drawing.Point(36, 251);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(37, 34);
@@ -660,14 +618,39 @@
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
+            // helpButton
+            // 
+            this.helpButton.Location = new System.Drawing.Point(632, 12);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(57, 23);
+            this.helpButton.TabIndex = 24;
+            this.helpButton.Text = "HELP";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(662, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Status";
+            // 
             // mainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 649);
+            this.ClientSize = new System.Drawing.Size(760, 649);
+            this.Controls.Add(this.helpButton);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.speedFlash);
+            this.Controls.Add(this.PCBbox);
             this.Controls.Add(this.speedFast);
             this.Controls.Add(this.speedNormal);
             this.Controls.Add(this.speedSlow);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label27);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -680,7 +663,6 @@
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label2);
@@ -689,16 +671,8 @@
             this.Controls.Add(this.labelWaiting);
             this.Controls.Add(this.boxUsingIO);
             this.Controls.Add(this.boxRunning);
-            this.Controls.Add(this.boxLogTotal);
-            this.Controls.Add(this.boxLogEnd);
-            this.Controls.Add(this.boxLogIOArrival);
-            this.Controls.Add(this.boxLogIOUsage);
-            this.Controls.Add(this.boxLogAccumCPU);
-            this.Controls.Add(this.boxLogCPUUsage);
-            this.Controls.Add(this.boxLogArrivalTime);
-            this.Controls.Add(this.boxLogID);
             this.Controls.Add(this.boxFinished);
-            this.Controls.Add(this.boxNew);
+            this.Controls.Add(this.boxHold);
             this.Controls.Add(this.boxReady);
             this.Controls.Add(this.boxWaiting);
             this.Controls.Add(this.quantumNumLabel);
@@ -706,9 +680,10 @@
             this.Controls.Add(this.quantumLabel);
             this.Controls.Add(this.clockLabel);
             this.Name = "mainMenu";
-            this.Text = " CactOS";
+            this.Text = " Dog-OS";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -728,13 +703,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox boxNew;
+        private System.Windows.Forms.TextBox boxHold;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button pauseButton;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -742,7 +716,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox ioTimeBox;
         private System.Windows.Forms.TextBox cpuAvgTimeBox;
         private System.Windows.Forms.TextBox limitWaitingIOBox;
@@ -768,15 +741,14 @@
         private System.Windows.Forms.Timer aTimer;
         private System.Windows.Forms.TextBox boxUsingIO;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox boxLogID;
-        private System.Windows.Forms.TextBox boxLogArrivalTime;
-        private System.Windows.Forms.TextBox boxLogCPUUsage;
-        private System.Windows.Forms.TextBox boxLogAccumCPU;
-        private System.Windows.Forms.TextBox boxLogIOUsage;
-        private System.Windows.Forms.TextBox boxLogIOArrival;
-        private System.Windows.Forms.TextBox boxLogEnd;
-        private System.Windows.Forms.TextBox boxLogTotal;
         private System.Windows.Forms.ComboBox comboAlgorithm;
+        private System.Windows.Forms.TextBox PCBbox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button speedFlash;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.Label label5;
     }
 }
 

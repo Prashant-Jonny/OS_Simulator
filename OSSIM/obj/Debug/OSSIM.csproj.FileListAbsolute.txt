@@ -9,3 +9,21 @@ C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSI
 C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.exe
 C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.pdb
 C:\Users\owner\Documents\Tareas\CETYS\SEM 5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.mainMenu.resources
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.exe.config
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.exe
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.pdb
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.csprojResolveAssemblyReference.cache
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.mainMenu.resources
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.csproj.GenerateResource.Cache
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.exe
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.pdb
+C:\Users\Scrub\Documents\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.Properties.Resources.resources
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.exe.config
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.exe
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.pdb
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.exe
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\bin\Debug\OSSIM.pdb
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.csprojResolveAssemblyReference.cache
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.mainMenu.resources
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.Properties.Resources.resources
+D:\School\CETYS\SEM_5\OS\OS_Simulator\OSSIM\obj\Debug\OSSIM.csproj.GenerateResource.Cache

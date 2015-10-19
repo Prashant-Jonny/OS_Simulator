@@ -23,6 +23,9 @@ namespace OSSIM
 
         public int logAccumulatedUsage { get; set; }
         public int logSystemTime { get; set; }
+        public int logWaitTime { get; set; }
+
+        public string status { get; set; }
 
         public Process()
         {
@@ -32,13 +35,32 @@ namespace OSSIM
         {
             id = ident;
             Random rnd = new Random();
-            cpuUsageTime = rnd.Next(runTimeAverage - 2, runTimeAverage + 2);
+            cpuUsageTime = rnd.Next(runTimeAverage - 2, runTimeAverage + 3);
             ioUsageTime = ioTime;
-            ioStartTime = rnd.Next(2, cpuUsageTime);
+            ioStartTime = rnd.Next(1, cpuUsageTime-1);
 
             logCPUUsageTime = cpuUsageTime;
             logIOStartTime = ioStartTime;
             logIOUsageTime = ioUsageTime;
+        }
+
+        public void calculateAccumulated(int actualTime)
+        {
+            if (logEndTime == 0)
+                logAccumulatedUsage = actualTime - logArrivalTime;
+        }
+
+        public void calculateSystemTime()
+        {
+            if (logEndTime != 0)
+                logSystemTime = logEndTime - logArrivalTime + 1;
+        }
+
+        public void calculateWaitTime()
+        {
+            if (logSystemTime != 0)
+                logWaitTime = logSystemTime - logCPUUsageTime - logIOUsageTime;
+
         }
     }
 }
